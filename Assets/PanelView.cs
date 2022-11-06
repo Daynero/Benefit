@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PanelView : MonoBehaviour
 {
-    [SerializeField] private Button clearPanelButton;
-    [SerializeField] private TextMeshProUGUI labelText;
+    [SerializeField] private Button clearWeightButton;
+    [SerializeField] private Button clearPriceButton;
     [SerializeField] private TMP_InputField weightInput;
     [SerializeField] private TMP_InputField priceInput;
 
@@ -18,4 +18,7 @@ public class PanelView : MonoBehaviour
         weightInput.onValueChanged.AddListener(str => OnWeightChanged?.Invoke(str));
         priceInput.onValueChanged.AddListener(str => OnPriceChanged?.Invoke(str));
     }
+
+    public string GetPrice() => priceInput.text;
+    public string GetWeight() => weightInput.text;
 }
